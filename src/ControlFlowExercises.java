@@ -5,10 +5,10 @@ public class ControlFlowExercises {
 //            System.out.println(i);
 //            i++;
 
-      int count = 0;
-        while(count <= 100){
+      int count = 100;
+        while(count >= -10){
             System.out.println(count);
-            count = count + 2;
+            count = count - 5;
         }
         }
     }
