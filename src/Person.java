@@ -13,9 +13,11 @@ public class Person {
     public void sayHello(){
         System.out.println("Howdy from " + this.name);
     }
+
     public static void main(String[] args) {
         Person person = new Person();
-        person.setName("Tom");
+        person.setName("Gunnar");
         person.sayHello();
     }
 }
+
