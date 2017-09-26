@@ -1,6 +1,10 @@
 public class Person {
     private String name;
 
+    public Person(String name){
+        this.name =name;
+    }
+
     // returns the person's name
     public String getName(){
         return name;
@@ -11,12 +15,11 @@ public class Person {
     }
     // prints a message to the console using the person's name
     public void sayHello(){
-        System.out.println("Howdy from " + this.name);
+        System.out.println("Howdy " + this.name);
     }
 
     public static void main(String[] args) {
-        Person person = new Person();
-        person.setName("Gunnar");
+        Person person = new Person("Gunnar");
         person.sayHello();
     }
 }
