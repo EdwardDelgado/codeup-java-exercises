@@ -16,5 +16,4 @@ public class ServerNameGenerator {
                 + getRandom(adjectives) + " - " + getRandom(nouns));
 
     }
-
 }
