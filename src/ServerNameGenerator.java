@@ -2,9 +2,9 @@ import java.util.Random;
 
 public class ServerNameGenerator {
 
-         private static String[] adjectives = new String[]{"Scared", "Happy", "Emotional", "Pregnant", "Senile", "Hungry", "Competitive", "Dangerous", "Aggressive", "Pure"};
+          static String[] adjectives = {"Scared", "Happy", "Emotional", "Pregnant", "Senile", "Hungry", "Competitive", "Dangerous", "Aggressive", "Pure"};
 
-         private static String[] nouns = {"Art", "Government", "Literature", "Software", "Knowledge", "Science", "Library", "Investment", "Society", "Analysis"};
+          static String[] nouns = {"Art", "Government", "Literature", "Software", "Knowledge", "Science", "Library", "Investment", "Society", "Analysis"};
 
     public static String getRandom(String[] server) {
         Random random = new Random();
