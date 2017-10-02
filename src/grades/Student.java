@@ -2,40 +2,43 @@ package grades;
 
 import java.util.ArrayList;
 
+//Constructor
 public class Student {
+
     private String name;
     private ArrayList<Integer> grades;
+
     public Student(String name) {
         this.name = name;
         this.grades = new ArrayList<>();
     }
 
-    public Student(){};
+//    Methods
     // returns the student's name
     public String getName(){
         return this.name;
     }
 
     // adds the given grade to the grades property
-    public void addGrade(int grades){
-        this.grades.add(grades);
+    public void addGrade(int grade){
+        this.grades.add(grade);
     }
 
     // returns the average of the students grades
     public double getGradeAverage(){
-        double sum = 0;
-        for(Integer grade: grades) {
-            sum += grade;
+        double total = 0;
+        for(Integer grade : grades) {
+            total += grade;
         }
-        return sum /grades.size();
+        return total /grades.size();
     }
 
     public static void main(String[] args) {
         Student student = new Student("Edward");
+        student.addGrade(80);
+        student.addGrade(95);
         student.addGrade(85);
-        student.addGrade(99);
-        student.addGrade(85);
-        student.addGrade(50);
+        student.addGrade(70);
         System.out.println(student.getName() + "'s grade average is: " + student.getGradeAverage());
     }
 }
