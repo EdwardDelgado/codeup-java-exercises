@@ -8,15 +8,15 @@ public class Student {
         this.grades = new ArrayList<>();
     }
     public Student(){};
-    // returns student's name
+    // returns the student's name
     public String getName(){
         return this.name;
     }
-    // adds grades to the grades property
+    // adds the given grade to the grades property
     public void addGrade(int grades){
         this.grades.add(grades);
     }
-    // returns students average
+    // returns the average of the students grades
     public double getGradeAverage(){
         double sum = 0;
         for(Integer grade: grades) {
@@ -25,7 +25,7 @@ public class Student {
         return sum /grades.size();
     }
     public static void main(String[] args) {
-        Student student = new Student("Micky");
+        Student student = new Student("Edward");
         student.addGrade(85);
         student.addGrade(99);
         student.addGrade(85);
