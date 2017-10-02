@@ -1,8 +1,12 @@
 package grades;
 
+import util.Input;
 import java.util.HashMap;
 
 public class GradesApplication {
+
+    static Input input = new Input();
+
     public static void main(String[] args) {
 
         HashMap<String, Student> students = new HashMap<>();
@@ -11,12 +15,6 @@ public class GradesApplication {
         Student travis = new Student("Travis");
         Student carlo = new Student("Carlo");
         Student paul = new Student("Paul");
-
-        System.out.println(michael.getName());
-        System.out.println(travis.getName());
-        System.out.println(carlo.getName());
-        System.out.println(paul.getName());
-
 
         michael.addGrade(95);
         michael.addGrade(99);
@@ -40,27 +38,65 @@ public class GradesApplication {
         paul.addGrade(85);
         paul.addGrade(95);
 
-        System.out.println(michael.getGradeAverage());
-        System.out.println(travis.getGradeAverage());
-        System.out.println(carlo.getGradeAverage());
-        System.out.println(paul.getGradeAverage());
-
 //        Add students to the map
         students.put("TrickyMicky", michael);
         students.put("T-Payne", travis);
         students.put("Carlito", carlo);
         students.put("Pablo", paul);
 
+        while (true) {
 
-//        for(Student usernames : students.values()){
-//            System.out.println(" | " + usernames + " : ");
-//            System.out.println(students.get(usernames).getName());
-//        }
+            System.out.println("1.- View all info students");
+            System.out.println("2.- View all names");
+            System.out.println("3.- Which student:");
+            System.out.println("4.- Exit");
 
-        for (String key : students.keySet()){
-            Student curStudent = students.get(key);
-            System.out.println(("Name: " + curStudent.getName() + " - Github Username: " +key+"\n" +
-                    "Current Average: " + curStudent.getGradeAverage() + "\n"));
+            int option = input.getInt(1, 4);
+
+            switch (option) {
+                case 1:
+                    printAll(students, "info");
+                    break;
+                case 2:
+                    printAll(students, "names");
+                    break;
+                case 3:
+                    // view names
+                    System.out.println("Give me the username:");
+                    printOne(students, input.getString());
+                    break;
+                case 4:
+                    System.exit(0);
+                    break;
+            }
+
+            System.out.println("Would you like to continue?");
+            if (!input.yesNo()) {
+                break;
+            }
         }
+
+    }
+
+    public static void printAll(HashMap<String, Student> students, String option) {
+        for (String key : students.keySet()) {
+
+            Student curStudent = students.get(key);
+
+            if (option.equals("info")) {
+                System.out.println("Name: " + curStudent.getName() + " - Gihub Username: " + key + "\n" +
+                        "Current Average: " + curStudent.getGradeAverage() + "\n");
+            } else if (option.equals("names")) {
+                System.out.print("|" + curStudent.getName() + "| ");
+            }
+        }
+        System.out.println();
+    }
+
+    public static void printOne(HashMap<String, Student> students, String username) {
+        Student one = students.get(username);
+
+        System.out.println("Name: " + one.getName() + " - Gihub Username: " + username + "\n" +
+                "Current Average: " + one.getGradeAverage() + "\n");
     }
 }
